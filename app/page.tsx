@@ -1,69 +1,61 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from "next/link";
+import { ArrowRight, ShoppingBag } from "lucide-react";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
+    <main className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="mx-auto max-w-7xl px-6 py-24">
+        <div className="max-w-2xl">
+          <span className="rounded-full bg-gray-200 px-4 py-2 text-sm font-medium">
+            Welcome to ShopEase
+          </span>
+
+          <h1 className="mt-8 text-5xl font-bold tracking-tight text-gray-900 md:text-7xl">
+            Find products you&apos;ll love.
           </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <p className="mt-6 text-lg leading-8 text-gray-600">
+            Discover quality products, explore our latest collections, and enjoy
+            a simple shopping experience.
           </p>
+
+          <div className="mt-10 flex flex-wrap gap-4">
+            <Link
+              href="/products"
+              className="inline-flex items-center gap-2 rounded-lg bg-black px-6 py-3 font-medium text-white transition hover:bg-gray-800"
+            >
+              Shop Now
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+
+            <Link
+              href="/categories"
+              className="inline-flex items-center gap-2 rounded-lg border border-gray-300 px-6 py-3 font-medium text-gray-800 transition hover:bg-gray-100"
+            >
+              Explore Categories
+            </Link>
+          </div>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Featured Section */}
+      <section className="mx-auto max-w-7xl px-6 pb-24">
+        <div className="rounded-2xl bg-white p-10 shadow-sm">
+          <div className="flex flex-col items-center text-center">
+            <ShoppingBag className="h-12 w-12 text-gray-400" />
+
+            <h2 className="mt-5 text-2xl font-bold">
+              Your next favorite product is waiting.
+            </h2>
+
+            <p className="mt-3 max-w-lg text-gray-500">
+              Our product catalog will be available here once we connect Payload
+              CMS.
+            </p>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }
